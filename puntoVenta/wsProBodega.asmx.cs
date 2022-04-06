@@ -22,6 +22,12 @@ namespace puntoVenta
         {
             return new clases.csProBodega().lista_bodega();
         }
+
+        [WebMethod]
+        public DataSet buscar_bodega(string nombre)
+        {
+            return new clases.csProBodega().buscar_bodega(nombre);
+        }
         [WebMethod]
         public Int32 insertar_bodega(Int32 id_bodega,string nombre,string descripcion)
         {

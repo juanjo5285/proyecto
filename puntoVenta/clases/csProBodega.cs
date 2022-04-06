@@ -18,7 +18,7 @@ namespace puntoVenta.clases
                 cn.ConnectionString = ConfigurationManager.ConnectionStrings["conexion"].ConnectionString;
                 cn.Open();
                 OracleDataAdapter da;
-                da = new OracleDataAdapter("select * from PRO_BODEGA1", cn);
+                da = new OracleDataAdapter("select * from PRO_BODEGA", cn);
                
                 da.Fill(dsi);
                 cn.Close();
@@ -26,6 +26,28 @@ namespace puntoVenta.clases
             }
             catch (Exception ex){ 
             
+            }
+            return dsi;
+        }
+
+        public DataSet buscar_bodega(string nombre)
+        {
+            DataSet dsi = new DataSet();
+            try
+            {
+                OracleConnection cn = new OracleConnection();
+                cn.ConnectionString = ConfigurationManager.ConnectionStrings["conexion"].ConnectionString;
+                cn.Open();
+                OracleDataAdapter da;
+                da = new OracleDataAdapter("select * from PRO_BODEGA WHERE BOD_NOMBRE='"+nombre+"'  ", cn);
+
+                da.Fill(dsi);
+                cn.Close();
+
+            }
+            catch (Exception ex)
+            {
+
             }
             return dsi;
         }

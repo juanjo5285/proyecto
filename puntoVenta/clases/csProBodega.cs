@@ -14,7 +14,7 @@ namespace puntoVenta.clases
             DataSet dsi = new DataSet();
             try
             {
-                OracleConnection cn = new OracleConnection();// conexion a base datos
+                OracleConnection cn = new OracleConnection();// conexion a la base datos
                 cn.ConnectionString = ConfigurationManager.ConnectionStrings["conexion"].ConnectionString;
                 cn.Open();
                 OracleDataAdapter da;
